@@ -1,5 +1,6 @@
 function setup(){
-  createCanvas(900, 900, WEBGL);
+  createCanvas(1024, 900, WEBGL);
+
 }
 
 function draw(){
@@ -11,7 +12,7 @@ function draw(){
   var locY = (mouseY / height - 0.5) * (-2);
   var locX = (mouseX / width - 0.5) * 2;
   */
-  
+
   rotateY(frameCount * 0.003);
 
   for(var j = 0; j < 5; j++){
@@ -22,7 +23,9 @@ function draw(){
       rotateZ(frameCount * 0.002);
       push();
       normalMaterial();
-      sphere(20, 6, 4); 
+      //sphere(20, 24, 16);
+      ellipsoid(20, 30, 40);
+      //box(200, 200, 200);
       pop();
     }
     pop();
@@ -31,14 +34,12 @@ function draw(){
 
 
 /*
-
 function draw(){
   background(250);
   var radius = width * 1.5;
-  
+
   //drag to move the world.
   orbitControl();
-
   normalMaterial();
   translate(0, 0, -600);
   for(var i = 0; i <= 12; i++){
@@ -46,7 +47,7 @@ function draw(){
       push();
       var a = j/12 * PI;
       var b = i/12 * PI;
-      translate(sin(2 * a) * radius * sin(b), cos(b) * radius / 2 , cos(2 * a) * radius * sin(b));    
+      translate(sin(2 * a) * radius * sin(b), cos(b) * radius / 2 , cos(2 * a) * radius * sin(b));
       if(j%2 === 0){
         cone(30, 30);
       }else{
@@ -56,7 +57,6 @@ function draw(){
     }
   }
 }
-
 */
 
 
@@ -70,16 +70,12 @@ function setup(){
   createCanvas(710, 400, WEBGL);
   img = loadImage("assets/cat.jpg");
 }
-
 function draw(){
   background(0);
-
   var locY = (mouseY / height - 0.5) * (-2);
   var locX = (mouseX / width - 0.5) * 2;
-
   ambientLight(100, 80, 80);
   pointLight(200, 200, 200, locX, locY, 0);
-
   push();
   rotateZ(frameCount * 0.02);
   rotateX(frameCount * 0.02);
@@ -87,7 +83,7 @@ function draw(){
   texture(img);
   box(80);
   pop();
-  
+
   translate(-200, -250, 0);
   push();
   rotateZ(frameCount * 0.02);
@@ -96,7 +92,6 @@ function draw(){
   fill(250, 0, 0);
   torus(80, 20, 64, 64);
   pop();
-
   translate(400, 0, 0);
   push();
   rotateZ(frameCount * 0.02);
@@ -105,7 +100,6 @@ function draw(){
   normalMaterial();
   torus(80, 20, 64, 64);
   pop();
-
   translate(-400, 500, 0);
   push();
   rotateZ(frameCount * 0.02);
@@ -114,7 +108,6 @@ function draw(){
   ambientMaterial(250);
   torus(80, 20, 64, 64);
   pop();
-
   translate(400, 0, 0);
   push();
   specularMaterial(250);
@@ -124,7 +117,4 @@ function draw(){
   torus(80, 20, 64, 64);
   pop();
 }
-
-
-
 */
